@@ -1,11 +1,10 @@
-/* eslint-disable */
-import React from 'react';
+import React from "react";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { Empty, Elevation } from '../..';
+import Elevation from ".";
+import Empty from "../../Layout/Empty";
 
 export default {
-  title: 'Elevation',
+  title: 'Display/Elevation',
   component: Elevation
 } as ComponentMeta<typeof Elevation>;
 

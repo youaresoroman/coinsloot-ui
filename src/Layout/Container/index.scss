@@ -1,0 +1,33 @@
+.cl-container {
+    padding: 0;
+    margin: 0;
+    transition: var(--cl-transitions);
+
+    &.cl-container-padding-small {
+        padding: $small;
+    }
+
+    &.cl-container-padding-medium {
+        padding: $medium;
+    }
+
+    &.cl-container-padding-large {
+        padding: $large;
+    }
+
+    &.cl-container-margin-small {
+        margin: $small;
+    }
+
+    &.cl-container-margin-medium {
+        margin: $medium;
+    }
+
+    &.cl-container-margin-large {
+        margin: $large;
+    }
+
+    &.cl-container-round {
+        border-radius: var(--cl-border-round);
+    }
+}

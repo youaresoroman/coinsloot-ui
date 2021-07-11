@@ -1,0 +1,61 @@
+.cl-button {
+  padding: 8px 10px;
+  font-size: 16px;
+  color: black;
+  font-weight: 600;
+  border: none;
+  transition: var(--cl-transitions);
+
+  &.cl-button-primary {
+    background-color: var(--cl-color-theme);
+    color:  var(--cl-color-theme-contrast);
+  }
+
+  &.cl-button-secondary {
+    background-color: gray;
+  }
+
+  &.cl-button-link {
+    background: none !important;
+    position: relative;
+    font-weight: initial;
+    padding: 8px 10px;
+
+    &:hover {
+      color: black;
+      &::after {
+        top: 0%;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: -0.1em;
+      right: -0.1em;
+      bottom: 0;
+      transition: top var(--cl-animation-duration) cubic-bezier(0, 0.8, 0.13, 1);
+      background-color: rgb(var(--cl-color-theme-rgba), 0.5);
+    }
+  }
+
+  &.cl-button-large {
+    padding: 17px;
+    font-size: 26px;
+  }
+
+  &.cl-button-small {
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  &:hover {
+    color: white;
+  }
+
+  &.cl-button-round {
+    border-radius: var(--cl-border-round);
+  }
+}

@@ -1,4 +1,7 @@
-import { themes } from '@storybook/theming';
+import React from "react";
+import styles from "../dist/bundle.css";
+import App from "../src/App"
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -7,14 +10,12 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  darkMode: {
-    // Override the default dark theme
-    dark: { ...themes.dark, appBg: '#1e1e1e' },
-    // Override the default light theme
-    light: { ...themes.normal, appBg: '#f0f2f6' },
-    // Set the initial theme
-    current: 'light',
-    classTarget: 'html',
-    stylePreview: true
-  }
 }
+
+export const decorators = [
+  (Story) => (
+    <App style={styles}>
+      <Story />
+    </App>
+  ),
+];

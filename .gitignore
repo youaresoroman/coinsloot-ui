@@ -1,4 +1,5 @@
-build/
-dist/
-node_modules/
-.snapshots/
+*.log
+.DS_Store
+node_modules
+.cache
+dist
