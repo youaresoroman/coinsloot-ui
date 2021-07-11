@@ -1,0 +1,21 @@
+.cl-app {
+    --cl-border-round: 0.5em;
+    --cl-header-height: 5rem;
+    --cl-toast-horizontal: 3rem;
+    --cl-toast-vertical: calc(var(--cl-header-height) + 2rem);
+    --cl-transitions: all 0.4s ease-in-out 0.2s;
+    --cl-animation-duration: 0.3s;
+    transition: var(--cl-transitions);
+
+    --cl-color-theme: #9900ff;
+        --cl-color-theme-rgba: 153, 0, 255;
+        --cl-color-theme-contrast: black;
+        --cl-text-color: green;
+
+    &.lightTheme {
+        --cl-color-theme: #9900ff;
+        --cl-color-theme-rgba: 153, 0, 255;
+        --cl-color-theme-contrast: #fff;
+        --cl-text-color: red;
+    }
+}

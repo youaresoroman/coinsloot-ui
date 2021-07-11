@@ -1,76 +1,98 @@
 {
-  "name": "coinsloot-ui-lib",
-  "version": "1.0.1",
-  "description": "CoinsLoot user interface library",
-  "author": "youaresoroman",
+  "version": "0.1.3",
   "license": "MIT",
-  "repository": "youaresoroman/coinsloot-ui-lib",
   "main": "dist/index.js",
-  "module": "dist/index.modern.js",
-  "source": "src/index.tsx",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --css-modules \"[local]\" --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --css-modules \"[local]\" --format modern,cjs",
-    "prepare": "run-s build",
-    "test": "run-s test:unit test:lint test:build",
-    "test:build": "run-s build",
-    "test:lint": "eslint .",
-    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build",
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "generate": "node ./util/create-component"
   },
+  "peerDependencies": {
+    "react": "^17.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "coinsloot-ui",
+  "author": "Roman Yankowski",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coinsloot/coinsloot-ui.git"
+  },
+  "keywords": [
+    "React",
+    "Component",
+    "Library",
+    "Rollup",
+    "Typescript",
+    "SCSS",
+    "User Interface",
+    "Storybook",
+    "CoinsLoot"
+  ],
+  "bugs": {
+    "url": "https://github.com/coinsloot/coinsloot-ui/issues"
+  },
+  "homepage": "https://github.com/coinsloot/coinsloot-ui#readme",
+  "module": "dist/coinsloot-ui.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/coinsloot-ui.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/coinsloot-ui.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "devDependencies": {
     "@babel/core": "^7.14.6",
-    "@emotion/core": "^11.0.0",
-    "@emotion/react": "^11.4.0",
-    "@emotion/styled": "^11.3.0",
-    "@storybook/addon-actions": "^6.3.1",
-    "@storybook/addon-essentials": "^6.3.1",
-    "@storybook/addon-links": "^6.3.1",
-    "@storybook/react": "^6.3.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^25.1.4",
-    "@types/node": "^12.12.38",
-    "@types/react": "^16.9.27",
-    "@types/react-dom": "^16.9.7",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
-    "@typescript-eslint/parser": "^2.26.0",
-    "babel-eslint": "^10.0.3",
+    "@size-limit/preset-small-lib": "^5.0.1",
+    "@storybook/addon-actions": "^6.3.4",
+    "@storybook/addon-essentials": "^6.3.4",
+    "@storybook/addon-links": "^6.3.4",
+    "@storybook/react": "^6.3.4",
+    "@types/react": "^17.0.14",
+    "@types/react-dom": "^17.0.9",
+    "autoprefixer": "^10.3.0",
     "babel-loader": "^8.2.2",
-    "cross-env": "^7.0.2",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-config-standard-react": "^9.2.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-standard": "^4.0.1",
-    "gh-pages": "^2.2.0",
-    "microbundle-crl": "^0.13.10",
-    "node-sass": "^6.0.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.0.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.14.0",
-    "react-scripts": "^3.4.1",
-    "sass": "^1.35.1",
-    "sass-loader": "^8.0.2",
-    "storybook-dark-mode": "^1.0.8",
-    "typescript": "^3.7.5",
-    "webpack": "^4.42.0"
+    "husky": "^7.0.1",
+    "react": "17.0.2",
+    "react-dom": "^17.0.0",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-scss": "^3.0.0",
+    "sass": "^1.35.2",
+    "size-limit": "^5.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
   },
-  "files": [
-    "dist"
-  ]
+  "dependencies": {
+    "notistack": "^1.0.9",
+    "react-context-hook": "^3.0.6",
+    "store": "^2.0.12"
+  }
 }

@@ -1,0 +1,15 @@
+.cl-empty-box {
+    padding: 0;
+    margin: 0;
+    min-width: 100px;
+    min-height: 100px;
+    transition: var(--cl-transitions);
+  
+    &.cl-empty-box-border { 
+      border: 1px black solid;
+    }
+  
+    &.cl-empty-box-round { 
+      border-radius: var(--cl-border-round);
+    }
+  }
