@@ -1,6 +1,6 @@
 import { ReactChild } from "react";
 
-export interface ToastProps {
+interface ToastProps {
   /**
    * Override component classname
    */
@@ -62,3 +62,5 @@ export interface ToastProps {
    */
   onClose?: () => void
 }
+
+export default ToastProps

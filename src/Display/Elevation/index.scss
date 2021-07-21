@@ -5,23 +5,23 @@
   transition: var(--cl-transitions);
 
   &.cl-elevation-elevate-1 {
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    box-shadow: $shadow-level-1;
   }
 
   &.cl-elevation-elevate-2 {
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    box-shadow: $shadow-level-2;
   }
 
   &.cl-elevation-elevate-3 {
-    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    box-shadow: $shadow-level-3;
   }
 
   &.cl-elevation-elevate-4 {
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    box-shadow: $shadow-level-4;
   }
 
   &.cl-elevation-elevate-5 {
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    box-shadow: $shadow-level-5;
   }
   &.cl-elevation-round { 
     border-radius: var(--cl-border-round);

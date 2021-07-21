@@ -5,7 +5,9 @@ import Elevation from './Display/Elevation'
 import Toast from './Feedback/Toast'
 import useToast from './Hooks/useToast'
 import useTheme from './Hooks/useTheme'
-import "./styles.scss";
+import "./scss/styles.scss";
+import * as utils from './utils'
+import useIPFS from './Hooks/useIPFS'
 
 export {
     App,
@@ -14,5 +16,7 @@ export {
     Elevation,
     Toast,
     useToast,
-    useTheme
+    useTheme,
+    useIPFS,
+    utils
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../dist/bundle.css";
+import styles from "../src/css/styles.css";
 import App from "../src/App"
 
 export const parameters = {

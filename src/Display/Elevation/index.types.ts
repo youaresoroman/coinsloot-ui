@@ -1,10 +1,8 @@
-import { ReactChild } from "react";
-
-export interface ElevationProps {
+interface ElevationProps {
     /**
      * Override component classname
      */
-     className?: string
+    className?: string
     /**
      * Elevation height
      */
@@ -12,9 +10,7 @@ export interface ElevationProps {
     /**
      * Elevation round corners
      */
-     round?: boolean
-    /**
-     * Elevation content
-     */
-    children: ReactChild
-  }
+    round?: boolean
+}
+
+export default ElevationProps

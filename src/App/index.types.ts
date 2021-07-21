@@ -1,6 +1,6 @@
 import { ReactChild } from "react";
 
-export interface AppProps {
+interface AppProps {
     /**
      * Override component classname
      */
@@ -14,3 +14,5 @@ export interface AppProps {
     //  */
     //   themeName?: string
 }
+
+export default AppProps

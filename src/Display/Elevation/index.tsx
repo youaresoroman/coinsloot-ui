@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ElevationProps } from "./index.types";
+import ElevationProps from "./index.types";
 
 const Elevation: React.FC<ElevationProps> = ({
     height = 1,

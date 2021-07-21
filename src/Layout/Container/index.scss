@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     transition: var(--cl-transitions);
+    background-color: var(--cl-background-secondary);
 
     &.cl-container-padding-small {
         padding: $small;
