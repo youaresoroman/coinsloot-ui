@@ -8,9 +8,9 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => {
-  return <Button onClick={() => {
+  return <>Some text <Button onClick={() => {
     console.log("click")
-  }} {...args} />
+  }} {...args} /> around</>
 };
 
 export const Primary = Template.bind({});

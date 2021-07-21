@@ -1,28 +1,57 @@
 .cl-button {
-  padding: 8px 10px;
+  padding: 8px 14px;
   font-size: 16px;
-  color: black;
-  font-weight: 600;
-  border: none;
+  color: white;
+  font-weight: 400;
+  border: 1px transparent solid;
   transition: var(--cl-transitions);
-
+  background: linear-gradient(90deg, var(--c1, #f6d365), var(--c2, #fda085) 51%, var(--c1, #f6d365)) var(--x, 0)/ 200%;
+  
   &.cl-button-primary {
-    background-color: var(--cl-color-theme);
-    color:  var(--cl-color-theme-contrast);
+    
+    font-weight: 500;
+    --c1: #665cfa;
+    --c2: #8785fd;
+
+    &:hover {
+      --x: 100%;
+    }
   }
 
   &.cl-button-secondary {
-    background-color: gray;
+    --c1: #f1f1f1;
+    --c2: #c9c9c9;
+
+    &:hover {
+      --x: 100%;
+    }
+  }
+
+  &.cl-button-ghost {
+    background: initial;
+    color: var(--cl-text-color);
+
+    &:hover {
+      border: 1px gray solid;
+      box-shadow: initial;
+    }
   }
 
   &.cl-button-link {
-    background: none !important;
+    background: transparent;
     position: relative;
     font-weight: initial;
-    padding: 8px 10px;
+    border: initial;
+    padding: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: var(--cl-text-color);
+    //border-radius: initial;
 
     &:hover {
-      color: black;
+      box-shadow: initial;
+      color: var(--cl-text-color-contrast);
+
       &::after {
         top: 0%;
       }
@@ -32,7 +61,7 @@
       content: '';
       position: absolute;
       z-index: -1;
-      top: 50%;
+      top: 80%;
       left: -0.1em;
       right: -0.1em;
       bottom: 0;
@@ -52,10 +81,10 @@
   }
 
   &:hover {
-    color: white;
+    box-shadow: $shadow-level-4;
   }
 
-  &.cl-button-round {
+  &.cl-button-round:not(.cl-button-link) {
     border-radius: var(--cl-border-round);
   }
 }

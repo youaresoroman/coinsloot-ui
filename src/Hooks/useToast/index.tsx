@@ -1,7 +1,7 @@
 import React from "react";
 
 import Toast from "../../Feedback/Toast";
-import { useToastProps } from "./index.types";
+import useToastProps from "./index.types";
 import { useGetAndSet } from 'react-context-hook'
 
 const useToast = () => {

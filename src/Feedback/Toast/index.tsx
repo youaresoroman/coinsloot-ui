@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { ToastProps } from "./index.types";
+import ToastProps from "./index.types";
 import Button from "../../Inputs/Button";
 
 const Toast: React.FC<ToastProps> = (

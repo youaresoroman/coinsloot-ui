@@ -1,4 +1,4 @@
-.cl-app {
+body {
     --cl-border-round: 0.5em;
     --cl-header-height: 5rem;
     --cl-toast-horizontal: 3rem;
@@ -8,14 +8,20 @@
     transition: var(--cl-transitions);
 
     --cl-color-theme: #9900ff;
-        --cl-color-theme-rgba: 153, 0, 255;
-        --cl-color-theme-contrast: black;
-        --cl-text-color: green;
+    --cl-color-theme-rgba: 153, 0, 255;
+    --cl-text-color-contrast: #000;
+    --cl-text-color: #fff;
+    --cl-background-main: #14131d;
+    --cl-background-secondary: #464646;
 
     &.lightTheme {
-        --cl-color-theme: #9900ff;
-        --cl-color-theme-rgba: 153, 0, 255;
         --cl-color-theme-contrast: #fff;
-        --cl-text-color: red;
+        --cl-text-color: #000;
+        --cl-text-color-contrast: #fff;
+        --cl-background-main: #fdfdfd;
+        --cl-background-secondary: #e4e4e4;
     }
+
+    background-color: var(--cl-background-main) !important;
+    color: var(--cl-text-color);
 }

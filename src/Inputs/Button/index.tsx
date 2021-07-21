@@ -11,19 +11,24 @@ const Button: React.FC<ButtonProps> = ({
   size = 'medium',
   children,
   url,
+  disabled = false,
   round = true,
   onClick = () => null,
   className = 'cl-button'
 }) => {
   //const setToast = useToast()
-  const {toggleTheme} = useTheme();
+  const { toggleTheme } = useTheme();
 
-  const mode = `${className}-${type}`
-  const classes = `${className} ${[`${className}-${size}`, mode].join(' ')}${round ? ` ${className}-round` : ''}`
+  const buttonType = `${className}-${type}`
+  const buttonSize = `${className}-${size}`
+  const buttonShape = round? `${className}-round` : ''
+  const buttonActive = disabled ? `${className}-disabled` : ''
+
+  const classes = `${className} ${[buttonSize, buttonType, buttonShape, buttonActive].join(' ')}`
   return type !== "link" ? <button
     type='button'
     className={classes}
-    onClick={()=>{
+    onClick={() => {
       toggleTheme()
       // setToast({
       //   message: "title",
