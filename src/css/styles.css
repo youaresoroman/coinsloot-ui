@@ -1,5 +1,5 @@
 body {
-  --cl-border-round: 0.5em;
+  --cl-border-round: 0.8em;
   --cl-header-height: 5rem;
   --cl-toast-horizontal: 3rem;
   --cl-toast-vertical: calc(var(--cl-header-height) + 2rem);
@@ -134,7 +134,7 @@ body.lightTheme {
   top: var(--cl-toast-vertical);
 }
 .cl-toast.cl-toast-position-bottom-left, .cl-toast.cl-toast-position-bottom-right, .cl-toast.cl-toast-position-bottom-center {
-  bottom: var(--cl-toast-vertical);
+  bottom: calc(var(--cl-toast-vertical) + 3rem);
 }
 .cl-toast.cl-toast-position-bottom-center, .cl-toast.cl-toast-position-top-center {
   margin: 5% auto;
@@ -221,33 +221,45 @@ body.lightTheme {
 .cl-button {
   padding: 8px 14px;
   font-size: 16px;
-  color: white;
+  color: var(--cl-text-color-contrast);
   font-weight: 400;
   border: 1px transparent solid;
   transition: var(--cl-transitions);
   background: linear-gradient(90deg, var(--c1, #f6d365), var(--c2, #fda085) 51%, var(--c1, #f6d365)) var(--x, 0)/200%;
 }
-.cl-button.cl-button-primary {
+.cl-button.cl-button-cta {
+  padding: 12px 19px;
   font-weight: 500;
-  --c1: #665cfa;
-  --c2: #8785fd;
+  --c1: #8027d9;
+  --c2: #af7be3;
 }
-.cl-button.cl-button-primary:hover {
+.cl-button.cl-button-cta:hover {
   --x: 100%;
 }
-.cl-button.cl-button-secondary {
-  --c1: #f1f1f1;
-  --c2: #c9c9c9;
+.cl-button.cl-button-primary {
+  font-weight: 500;
+  --c1: #8027d9;
+  --c2: #af7be3;
 }
-.cl-button.cl-button-secondary:hover {
+.cl-button.cl-button-primary:hover {
   --x: 100%;
 }
 .cl-button.cl-button-ghost {
   background: initial;
   color: var(--cl-text-color);
+  border: 1px gray solid;
 }
 .cl-button.cl-button-ghost:hover {
-  border: 1px gray solid;
+  box-shadow: initial;
+}
+.cl-button.cl-button-text {
+  background: transparent;
+  color: var(--cl-text-color);
+  padding: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.cl-button.cl-button-text:hover {
   box-shadow: initial;
 }
 .cl-button.cl-button-link {
@@ -287,7 +299,7 @@ body.lightTheme {
   font-size: 18px;
 }
 .cl-button:hover {
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 .cl-button.cl-button-round:not(.cl-button-link) {
   border-radius: var(--cl-border-round);

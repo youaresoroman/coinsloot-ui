@@ -1,7 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Toast from ".";
-import App from "../../App";
 
 export default {
   title: 'Feedback/Toast',
@@ -12,6 +11,7 @@ const Template: ComponentStory<typeof Toast> = (args) => <Toast {...args} />;
 
 export const Top_Left = Template.bind({});
 Top_Left.args = {
+  timeout: 0,
   show:true,
   closeable: true,
   placeVertical: "top",
@@ -27,6 +27,7 @@ Top_Left.args = {
 
 export const Top_Right = Template.bind({});
 Top_Right.args = {
+  timeout: 0,
   show:true,
   closeable: true,
   placeVertical: "top",
@@ -44,6 +45,7 @@ Top_Right.args = {
 export const Top_Center = Template.bind({});
 Top_Center.args = {
   show:true,
+  timeout: 0,
   closeable: true,
   placeVertical: "top",
   message: "Message",
@@ -58,6 +60,7 @@ Top_Center.args = {
 
 export const Bottom_Left = Template.bind({});
 Bottom_Left.args = {
+  timeout: 0,
   show:true,
   closeable: true,
   message: "Message",
@@ -73,6 +76,7 @@ Bottom_Left.args = {
 
 export const Bottom_Right = Template.bind({});
 Bottom_Right.args = {
+  timeout: 0,
   show:true,
   closeable: true,
   message: "Message",
@@ -88,6 +92,7 @@ Bottom_Right.args = {
 
 export const Bottom_Center = Template.bind({});
 Bottom_Center.args = {
+  timeout: 0,
   show:true,
   closeable: true,
   message: "Message",

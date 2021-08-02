@@ -50,7 +50,7 @@ const Toast: React.FC<ToastProps> = (
   }, [show])
 
   const closeButton = (closeable ? <div className={`${className}-close`} onClick={closeAction}>
-    <Button type="primary">x</Button>
+    <Button type="ghost">x</Button>
   </div> : null)
 
   return open ? (
@@ -59,7 +59,7 @@ const Toast: React.FC<ToastProps> = (
       className={`${className} ${position}${closeableToggle}${roundToggle}${animateToggle}`}
     >
       <div className={`${className}-message`}>{message}</div>
-      <div className={`${className}-action`} onClick={optionalAction}><Button type="link">{actionText}</Button></div>
+      <div className={`${className}-action`} onClick={optionalAction}><Button type="secondary">{actionText}</Button></div>
       {closeButton}
     </div>
   ) : null

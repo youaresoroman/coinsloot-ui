@@ -8,7 +8,7 @@ interface ButtonProps {
   /**
    * Is button primary
    */
-  type?: 'primary' | 'secondary' | 'ghost' | 'link'
+  type?: 'cta' | 'primary' | 'ghost' | 'link' | 'text'
   /**
    * Link url
    */

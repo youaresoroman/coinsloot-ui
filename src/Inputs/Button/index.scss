@@ -1,26 +1,28 @@
 .cl-button {
   padding: 8px 14px;
   font-size: 16px;
-  color: white;
+  color: var(--cl-text-color-contrast);
   font-weight: 400;
   border: 1px transparent solid;
   transition: var(--cl-transitions);
   background: linear-gradient(90deg, var(--c1, #f6d365), var(--c2, #fda085) 51%, var(--c1, #f6d365)) var(--x, 0)/ 200%;
-  
-  &.cl-button-primary {
-    
+
+  &.cl-button-cta {
+    padding: 12px 19px;
     font-weight: 500;
-    --c1: #665cfa;
-    --c2: #8785fd;
+    --c1: #8027d9;
+    --c2: #af7be3;
 
     &:hover {
       --x: 100%;
     }
   }
-
-  &.cl-button-secondary {
-    --c1: #f1f1f1;
-    --c2: #c9c9c9;
+  
+  &.cl-button-primary {
+    
+    font-weight: 500;
+    --c1: #8027d9;
+    --c2: #af7be3;
 
     &:hover {
       --x: 100%;
@@ -30,9 +32,20 @@
   &.cl-button-ghost {
     background: initial;
     color: var(--cl-text-color);
+    border: 1px gray solid;
 
     &:hover {
-      border: 1px gray solid;
+      box-shadow: initial;
+    }
+  }
+
+  &.cl-button-text {
+    background: transparent;
+    color: var(--cl-text-color);
+    padding: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    &:hover {
       box-shadow: initial;
     }
   }
@@ -46,7 +59,6 @@
     padding-top: 8px;
     padding-bottom: 8px;
     color: var(--cl-text-color);
-    //border-radius: initial;
 
     &:hover {
       box-shadow: initial;
@@ -81,7 +93,7 @@
   }
 
   &:hover {
-    box-shadow: $shadow-level-4;
+    box-shadow: $shadow-level-5;
   }
 
   &.cl-button-round:not(.cl-button-link) {
