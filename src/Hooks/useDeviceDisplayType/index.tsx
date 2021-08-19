@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useStore } from 'react-context-hook'
 import { debounce } from '../../utils';
+import { useDeviceDisplayTypeReturnType } from './index.types';
 
 const useDeviceDisplayType = () => {
 
-  const [displayType, setDisplayType] = useStore('displayType') as ["extrasmall" | "small" | "medium" | "large" | "extralarge", (value: string) => void, () => void];
+  const [displayType, setDisplayType] = useStore('displayType') as useDeviceDisplayTypeReturnType;
   const [width, setWidth] = useState(window.innerWidth);
 
   const getDisplayType = (width: number) => {

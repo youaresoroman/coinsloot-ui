@@ -4,21 +4,25 @@ export interface ContainerProps {
     /**
      * Override component classname
      */
-    className?: string
+    classNameOverride?: string
     /**
      * Container paddings
      */
-    padding?: 'small' | 'medium' | 'large'
+    padding?: 'none' | 'small' | 'medium' | 'large'
     /**
      * Container margins
      */
-    margin?: 'small' | 'medium' | 'large'
+    margin?: 'none' | 'small' | 'medium' | 'large'
     /**
      * Container round corners
      */
     round?: boolean
     /**
-     * Container content
+     * On/Off animation
      */
-    children: ReactChild
+     animated?: boolean
+    /**
+   * Elevation
+   */
+    elevation?: 0 | 1 | 2 | 3 | 4 | 5
 }

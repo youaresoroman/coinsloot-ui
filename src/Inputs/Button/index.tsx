@@ -1,10 +1,6 @@
 import React from "react";
 
 import ButtonProps from "./index.types";
-import useTheme from "../../Hooks/useTheme";
-//import { useStore } from 'react-context-hook'
-
-//import useToast from "../../Feedback/Toast/Hooks/useToast";
 
 const Button: React.FC<ButtonProps> = ({
   type = 'primary',
@@ -13,28 +9,21 @@ const Button: React.FC<ButtonProps> = ({
   url,
   disabled = false,
   round = true,
+  width = "",
   onClick = () => null,
   className = 'cl-button'
 }) => {
-  //const setToast = useToast()
-  const { toggleTheme } = useTheme();
-
-  const buttonType = `${className}-${type}`
+  const buttonType = `${className}-${type}${disabled ? "-disabled" : ""}`
   const buttonSize = `${className}-${size}`
-  const buttonShape = round? `${className}-round` : ''
-  const buttonActive = disabled ? `${className}-disabled` : ''
+  const buttonShape = round ? `${className}-round` : ''
 
-  const classes = `${className} ${[buttonSize, buttonType, buttonShape, buttonActive].join(' ')}`
+  const classes = `${className} ${[buttonSize, buttonType, buttonShape].join(' ')}`
   return type !== "link" ? <button
     type='button'
     className={classes}
+    style={ width ? { width } : {}}
     onClick={() => {
-      toggleTheme()
-      // setToast({
-      //   message: "title",
-      //   closeable: true
-      // })
-      onClick()
+      !disabled ? onClick() : null
     }}
   >
     {children}

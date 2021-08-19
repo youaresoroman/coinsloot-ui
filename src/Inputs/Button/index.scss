@@ -1,26 +1,36 @@
 .cl-button {
   padding: 8px 14px;
   font-size: 16px;
-  color: white;
+  color: var(--cl-text-color-contrast);
   font-weight: 400;
+  border-radius: var(--cl-border-round);
   border: 1px transparent solid;
   transition: var(--cl-transitions);
   background: linear-gradient(90deg, var(--c1, #f6d365), var(--c2, #fda085) 51%, var(--c1, #f6d365)) var(--x, 0)/ 200%;
-  
-  &.cl-button-primary {
-    
-    font-weight: 500;
-    --c1: #665cfa;
-    --c2: #8785fd;
 
-    &:hover {
-      --x: 100%;
-    }
+  // &.cl-button-cta {
+  //   padding: 12px 19px;
+  //   font-weight: 500;
+  //   color: #fff;
+  //   --c1: #8027d9;
+  //   --c2: #af7be3;
+
+  //   &:hover {
+  //     --x: 100%;
+  //   }
+  // }
+
+  &.cl-button-white {
+    font-weight: 500;
+    background: #fff !important;
+    color: rgb(18, 18, 18) !important;
   }
 
-  &.cl-button-secondary {
-    --c1: #f1f1f1;
-    --c2: #c9c9c9;
+  &.cl-button-primary {
+    font-weight: 500;
+    --c1: #8027d9;
+    --c2: #af7be3;
+    color: #fff;
 
     &:hover {
       --x: 100%;
@@ -30,9 +40,21 @@
   &.cl-button-ghost {
     background: initial;
     color: var(--cl-text-color);
+    border: 1px gray solid;
 
     &:hover {
-      border: 1px gray solid;
+      box-shadow: initial;
+    }
+  }
+
+  &.cl-button-text {
+    background: transparent;
+    color: var(--cl-text-color);
+    padding: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    &:hover {
       box-shadow: initial;
     }
   }
@@ -45,12 +67,12 @@
     padding: 0;
     padding-top: 8px;
     padding-bottom: 8px;
+    border-radius: initial;
     color: var(--cl-text-color);
-    //border-radius: initial;
 
     &:hover {
       box-shadow: initial;
-      color: var(--cl-text-color-contrast);
+      //color: var(--cl-text-color-contrast);
 
       &::after {
         top: 0%;
@@ -71,8 +93,7 @@
   }
 
   &.cl-button-large {
-    padding: 17px;
-    font-size: 26px;
+    padding: 12px 19px;
   }
 
   &.cl-button-small {
@@ -81,10 +102,7 @@
   }
 
   &:hover {
-    box-shadow: $shadow-level-4;
+    box-shadow: var(--cl-shadow-3);
   }
 
-  &.cl-button-round:not(.cl-button-link) {
-    border-radius: var(--cl-border-round);
-  }
 }

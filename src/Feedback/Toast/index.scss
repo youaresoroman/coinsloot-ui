@@ -81,7 +81,7 @@
   &.cl-toast-position-bottom-left,
   &.cl-toast-position-bottom-right,
   &.cl-toast-position-bottom-center {
-    bottom: var(--cl-toast-vertical);
+    bottom: calc(var(--cl-toast-vertical) + 3rem);
   }
 
   &.cl-toast-position-bottom-center,

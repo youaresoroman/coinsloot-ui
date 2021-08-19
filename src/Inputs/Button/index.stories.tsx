@@ -13,16 +13,23 @@ const Template: ComponentStory<typeof Button> = (args) => {
   }} {...args} /> around</>
 };
 
+export const CallToAction = Template.bind({});
+CallToAction.args = {
+  type: "primary",
+  size: "large",
+  children: 'CallToAction button'
+};
+
 export const Primary = Template.bind({});
 Primary.args = {
   type: "primary",
   children: 'Primary button',
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  type: "secondary",
-  children: 'Secondary button',
+export const White = Template.bind({});
+White.args = {
+  type: "white",
+  children: 'White button',
 };
 
 export const Ghost = Template.bind({});
@@ -35,4 +42,13 @@ export const Link = Template.bind({});
 Link.args = {
   type: "link",
   children: 'Link button',
+};
+
+
+
+
+export const Text = Template.bind({});
+Text.args = {
+  type: "text",
+  children: 'Text button',
 };
