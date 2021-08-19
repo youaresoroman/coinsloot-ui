@@ -1,34 +1,46 @@
 .cl-container {
     padding: 0;
     margin: 0;
-    transition: var(--cl-transitions);
+    
     background-color: var(--cl-background-secondary);
 
-    &.cl-container-padding-small {
+    &-animated {
+        transition: var(--cl-transitions);
+    }
+
+    &-padding-none {
+        padding: 0;
+    }
+
+    &-padding-small {
         padding: $small;
     }
 
-    &.cl-container-padding-medium {
+    &-padding-medium {
         padding: $medium;
     }
 
-    &.cl-container-padding-large {
+    &-padding-large {
         padding: $large;
     }
 
-    &.cl-container-margin-small {
+    &-margin-none {
+        margin: 0;
+    }
+
+    &-margin-small {
         margin: $small;
     }
 
-    &.cl-container-margin-medium {
+    &-margin-medium {
         margin: $medium;
     }
 
-    &.cl-container-margin-large {
+    &-margin-large {
         margin: $large;
     }
 
-    &.cl-container-round {
+    &-round {
         border-radius: var(--cl-border-round);
     }
 }

@@ -1,3 +1,7 @@
 @import "./media.scss";
 @import "./typography.scss";
 @import "./shadows.scss";
+
+@mixin cssvar($name, $value) {
+    --cl-#{$name}: #{$value};
+}

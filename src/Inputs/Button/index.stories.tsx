@@ -15,14 +15,21 @@ const Template: ComponentStory<typeof Button> = (args) => {
 
 export const CallToAction = Template.bind({});
 CallToAction.args = {
-  type: "cta",
-  children: 'CallToAction button',
+  type: "primary",
+  size: "large",
+  children: 'CallToAction button'
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
   type: "primary",
   children: 'Primary button',
+};
+
+export const White = Template.bind({});
+White.args = {
+  type: "white",
+  children: 'White button',
 };
 
 export const Ghost = Template.bind({});
@@ -36,6 +43,7 @@ Link.args = {
   type: "link",
   children: 'Link button',
 };
+
 
 
 

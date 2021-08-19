@@ -7,7 +7,6 @@ import useToast from './Hooks/useToast'
 import useTheme from './Hooks/useTheme'
 import "./scss/styles.scss";
 import * as utils from './utils'
-import useIPFS from './Hooks/useIPFS'
 
 export {
     App,
@@ -17,6 +16,5 @@ export {
     Toast,
     useToast,
     useTheme,
-    useIPFS,
     utils
 }

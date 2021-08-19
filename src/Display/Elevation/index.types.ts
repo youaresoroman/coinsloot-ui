@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 interface ElevationProps {
     /**
      * Override component classname
@@ -11,6 +13,10 @@ interface ElevationProps {
      * Elevation round corners
      */
     round?: boolean
+    /**
+     * Container content
+    */
+    children: ReactNode
 }
 
 export default ElevationProps

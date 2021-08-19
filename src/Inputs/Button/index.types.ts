@@ -1,3 +1,4 @@
+import { StyleHTMLAttributes } from "react";
 import { ReactChild } from "react";
 
 interface ButtonProps {
@@ -8,11 +9,11 @@ interface ButtonProps {
   /**
    * Is button primary
    */
-  type?: 'cta' | 'primary' | 'ghost' | 'link' | 'text'
+  type?: 'primary' | 'white' | 'ghost' | 'link' | 'text'
   /**
    * Link url
    */
-   url?: string
+  url?: string
   /**
    * Is tbutton disabled
    */
@@ -29,6 +30,10 @@ interface ButtonProps {
    * Button round corners
    */
   round?: boolean
+  /**
+   * Button width
+   */
+  width?: string
   /**
    * Optional click handler
    */

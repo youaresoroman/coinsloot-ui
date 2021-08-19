@@ -9,17 +9,28 @@ body {
 
     --cl-color-theme: #9900ff;
     --cl-color-theme-rgba: 153, 0, 255;
-    --cl-text-color-contrast: #000;
+    --cl-text-color-contrast: rgb(18, 18, 18);
     --cl-text-color: #fff;
     --cl-background-main: #14131d;
     --cl-background-secondary: #464646;
+    --cl-shadow-1: none;
+    --cl-shadow-2: none;
+    --cl-shadow-3: none;
+    --cl-shadow-4: none;
+    --cl-shadow-5: none;
 
     &.lightTheme {
         --cl-color-theme-contrast: #fff;
-        --cl-text-color: #000;
+        --cl-text-color: rgb(18, 18, 18);
         --cl-text-color-contrast: #fff;
         --cl-background-main: #fdfdfd;
-        --cl-background-secondary: #e4e4e4;
+        --cl-background-secondary: #fff;
+        
+        @include cssvar("shadow-1", $shadow-level-1);
+        @include cssvar("shadow-2", $shadow-level-2);
+        @include cssvar("shadow-3", $shadow-level-3);
+        @include cssvar("shadow-4", $shadow-level-4);
+        @include cssvar("shadow-5", $shadow-level-5);
     }
 
     background-color: var(--cl-background-main) !important;

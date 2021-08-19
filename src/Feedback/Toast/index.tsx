@@ -59,7 +59,7 @@ const Toast: React.FC<ToastProps> = (
       className={`${className} ${position}${closeableToggle}${roundToggle}${animateToggle}`}
     >
       <div className={`${className}-message`}>{message}</div>
-      <div className={`${className}-action`} onClick={optionalAction}><Button type="secondary">{actionText}</Button></div>
+      <div className={`${className}-action`} onClick={optionalAction}><Button type="text">{actionText}</Button></div>
       {closeButton}
     </div>
   ) : null
