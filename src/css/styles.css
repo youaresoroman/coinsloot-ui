@@ -25,7 +25,7 @@ body.lightTheme {
   --cl-text-color: rgb(18, 18, 18);
   --cl-text-color-contrast: #fff;
   --cl-background-main: #fdfdfd;
-  --cl-background-secondary: #e4e4e4;
+  --cl-background-secondary: #fff;
   --cl-shadow-1: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   --cl-shadow-2: rgba(17, 17, 26, 0.1) 0px 0px 16px;
   --cl-shadow-3: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
@@ -36,28 +36,36 @@ body.lightTheme {
 .cl-container {
   padding: 0;
   margin: 0;
-  transition: var(--cl-transitions);
   background-color: var(--cl-background-secondary);
 }
-.cl-container.cl-container-padding-small {
+.cl-container-animated {
+  transition: var(--cl-transitions);
+}
+.cl-container-padding-none {
+  padding: 0;
+}
+.cl-container-padding-small {
   padding: 0.3rem;
 }
-.cl-container.cl-container-padding-medium {
+.cl-container-padding-medium {
   padding: 0.8rem;
 }
-.cl-container.cl-container-padding-large {
+.cl-container-padding-large {
   padding: 1.1rem;
 }
-.cl-container.cl-container-margin-small {
+.cl-container-margin-none {
+  margin: 0;
+}
+.cl-container-margin-small {
   margin: 0.3rem;
 }
-.cl-container.cl-container-margin-medium {
+.cl-container-margin-medium {
   margin: 0.8rem;
 }
-.cl-container.cl-container-margin-large {
+.cl-container-margin-large {
   margin: 1.1rem;
 }
-.cl-container.cl-container-round {
+.cl-container-round {
   border-radius: var(--cl-border-round);
 }
 
@@ -230,12 +238,16 @@ body.lightTheme {
   border-radius: var(--cl-border-round);
   border: 1px transparent solid;
   transition: var(--cl-transitions);
-  background: linear-gradient(90deg, var(--c1, #f6d365), var(--c2, #fda085) 51%, var(--c1, #f6d365)) var(--x, 0)/200%;
+  background: linear-gradient(90deg, var(--c1, #658ef6), var(--c2, #85adfd) 51%, var(--c1, #6595f6)) var(--x, 0)/200%;
 }
 .cl-button.cl-button-white {
   font-weight: 500;
   background: #fff !important;
   color: #121212 !important;
+}
+.cl-button.cl-button-white-disabled {
+  background: #fff !important;
+  color: #454545;
 }
 .cl-button.cl-button-primary {
   font-weight: 500;
@@ -246,6 +258,11 @@ body.lightTheme {
 .cl-button.cl-button-primary:hover {
   --x: 100%;
 }
+.cl-button.cl-button-primary-disabled {
+  --c1: #767676;
+  --c2: #7e7e7e;
+  color: #fff;
+}
 .cl-button.cl-button-ghost {
   background: initial;
   color: var(--cl-text-color);
@@ -253,6 +270,11 @@ body.lightTheme {
 }
 .cl-button.cl-button-ghost:hover {
   box-shadow: initial;
+}
+.cl-button.cl-button-ghost-disabled {
+  color: #6a6a6a;
+  border: 1px #6a6a6a solid;
+  background: initial;
 }
 .cl-button.cl-button-text {
   background: transparent;
@@ -263,6 +285,13 @@ body.lightTheme {
 }
 .cl-button.cl-button-text:hover {
   box-shadow: initial;
+}
+.cl-button.cl-button-text-disabled {
+  background: transparent;
+  color: #6a6a6a;
+  padding: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 .cl-button.cl-button-link {
   background: transparent;
@@ -281,6 +310,17 @@ body.lightTheme {
 .cl-button.cl-button-link:hover::after {
   top: 0%;
 }
+.cl-button.cl-button-link-disabled {
+  background: transparent;
+  position: relative;
+  font-weight: initial;
+  border: initial;
+  padding: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: initial;
+  color: var(--cl-text-color);
+}
 .cl-button.cl-button-link::after {
   content: "";
   position: absolute;
@@ -297,7 +337,7 @@ body.lightTheme {
 }
 .cl-button.cl-button-small {
   padding: 10px;
-  font-size: 18px;
+  font-size: 13px;
 }
 .cl-button:hover {
   box-shadow: var(--cl-shadow-3);

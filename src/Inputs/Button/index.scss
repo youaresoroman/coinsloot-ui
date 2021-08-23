@@ -6,7 +6,7 @@
   border-radius: var(--cl-border-round);
   border: 1px transparent solid;
   transition: var(--cl-transitions);
-  background: linear-gradient(90deg, var(--c1, #f6d365), var(--c2, #fda085) 51%, var(--c1, #f6d365)) var(--x, 0)/ 200%;
+  background: linear-gradient(90deg, var(--c1, #658ef6), var(--c2, #85adfd) 51%, var(--c1, #6595f6)) var(--x, 0)/ 200%;
 
   // &.cl-button-cta {
   //   padding: 12px 19px;
@@ -24,6 +24,11 @@
     font-weight: 500;
     background: #fff !important;
     color: rgb(18, 18, 18) !important;
+
+    &-disabled {
+      background: #fff !important;
+      color: rgb(69, 69, 69);
+    }
   }
 
   &.cl-button-primary {
@@ -35,6 +40,12 @@
     &:hover {
       --x: 100%;
     }
+
+    &-disabled {
+      --c1: #767676;
+      --c2: #7e7e7e;
+      color: #fff;
+    }
   }
 
   &.cl-button-ghost {
@@ -44,6 +55,12 @@
 
     &:hover {
       box-shadow: initial;
+    }
+
+    &-disabled {
+      color: rgb(106, 106, 106);
+      border: 1px rgb(106, 106, 106) solid;
+      background: initial;
     }
   }
 
@@ -56,6 +73,14 @@
 
     &:hover {
       box-shadow: initial;
+    }
+
+    &-disabled {
+      background: transparent;
+      color: rgb(106, 106, 106);
+      padding: 0;
+      padding-top: 8px;
+      padding-bottom: 8px;
     }
   }
 
@@ -79,6 +104,18 @@
       }
     }
 
+    &-disabled {
+      background: transparent;
+      position: relative;
+      font-weight: initial;
+      border: initial;
+      padding: 0;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      border-radius: initial;
+      color: var(--cl-text-color);
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -98,7 +135,7 @@
 
   &.cl-button-small {
     padding: 10px;
-    font-size: 18px;
+    font-size: 13px;
   }
 
   &:hover {

@@ -4,7 +4,7 @@ export interface ContainerProps {
     /**
      * Override component classname
      */
-    classNameOverride?: string
+    className?: string
     /**
      * Container paddings
      */

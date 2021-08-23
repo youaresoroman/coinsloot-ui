@@ -8,17 +8,18 @@ const Container: React.FC<ContainerProps> = ({
     round = true,
     elevation = 0,
     animated = false,
-    classNameOverride = "cl-container",
+    className = "",
     children }) => {
     const elevationClassName = "cl-elevation"
-    const className = classNameOverride
-    const roundToggle = round ? ` ${className}-round` : ''
-    const paddingToggle = `${className}-padding-${padding}`
-    const margingToggle = `${className}-margin-${margin}`
-    const animatedToggle = animated ? ` ${className}-animated` : ""
+    const containerClassName = "cl-container"
+    const roundToggle = round ? ` ${containerClassName}-round` : ''
+    const paddingToggle = `${containerClassName}-padding-${padding}`
+    const margingToggle = `${containerClassName}-margin-${margin}`
+    const animatedToggle = animated ? ` ${containerClassName}-animated` : ""
     const elevationClasses = elevation != 0 ? ` ${elevationClassName} ${elevationClassName}-elevate-${elevation}${roundToggle}${animatedToggle}` : ""
+    const classes = `${containerClassName} ${className ? className + " " : ""}${[paddingToggle, margingToggle].join(' ')}${roundToggle}${elevationClasses}`
 
-    return <div className={`${className} ${[paddingToggle, margingToggle].join(' ')}${roundToggle}${elevationClasses}`}>
+    return <div className={classes}>
         {children}
     </div>
 };
