@@ -15,6 +15,10 @@ interface ButtonProps {
    */
   url?: string
   /**
+     * Custom styles
+     */
+  style?: React.CSSProperties
+  /**
    * Is tbutton disabled
    */
   disabled?: boolean
@@ -30,10 +34,6 @@ interface ButtonProps {
    * Button round corners
    */
   round?: boolean
-  /**
-   * Button width
-   */
-  width?: string
   /**
    * Optional click handler
    */

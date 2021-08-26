@@ -2,10 +2,6 @@ import { ReactChild } from "react";
 
 interface AppProps {
     /**
-     * Override component classname
-     */
-    className?: string
-    /**
     * Container content
     */
     children: ReactChild

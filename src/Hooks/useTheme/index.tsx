@@ -22,17 +22,18 @@ const useTheme = () => {
   }
 
   useEffect(() => {
-    const browserTheme = localStorage.getItem("theme")
+    const browserTheme = localStorage.getItem("theme") as "lightTheme" | "darkTheme"
     if (!browserTheme) {
       localStorage.setItem("theme", actualTheme)
     } else if (browserTheme && browserTheme !== actualTheme) {
       setTheme(browserTheme)
     }
-    // window.addEventListener("storage", function (event) {
-    //   if (event.storageArea === localStorage && event.key === "theme") {
-    //     setTheme(event.newValue as "darkTheme" | "lightTheme" || "darkTheme")
-    //   }
-    // }, false);
+    window.addEventListener("storage", () => {
+      const savedTheme = localStorage.getItem("theme")
+      if (savedTheme != actualTheme) {
+        setTheme(savedTheme || "darkTheme")
+      }
+    });
   }, [])
 
   useEffect(() => {

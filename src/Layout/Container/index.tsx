@@ -9,6 +9,7 @@ const Container: React.FC<ContainerProps> = ({
     elevation = 0,
     animated = false,
     className = "",
+    style = {},
     children }) => {
     const elevationClassName = "cl-elevation"
     const containerClassName = "cl-container"
@@ -17,9 +18,9 @@ const Container: React.FC<ContainerProps> = ({
     const margingToggle = `${containerClassName}-margin-${margin}`
     const animatedToggle = animated ? ` ${containerClassName}-animated` : ""
     const elevationClasses = elevation != 0 ? ` ${elevationClassName} ${elevationClassName}-elevate-${elevation}${roundToggle}${animatedToggle}` : ""
-    const classes = `${containerClassName} ${className ? className + " " : ""}${[paddingToggle, margingToggle].join(' ')}${roundToggle}${elevationClasses}`
+    const classes = `${containerClassName} ${[paddingToggle, margingToggle].join(' ')}${roundToggle}${elevationClasses}${className ? " " + className : ""}`
 
-    return <div className={classes}>
+    return <div className={classes} style={style}>
         {children}
     </div>
 };

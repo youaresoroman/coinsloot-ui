@@ -9,7 +9,7 @@ const Button: React.FC<ButtonProps> = ({
   url,
   disabled = false,
   round = true,
-  width = "",
+  style,
   onClick = () => null,
   className = ''
 }) => {
@@ -22,13 +22,13 @@ const Button: React.FC<ButtonProps> = ({
   return type !== "link" ? <button
     type='button'
     className={classes}
-    style={ width ? { width } : {}}
+    style={style}
     onClick={() => {
       !disabled ? onClick() : null
     }}
   >
     {children}
-  </button> : <a href={url} className={classes}>{children}</a>
+  </button> : <a href={url} className={classes} style={style}>{children}</a>
 }
 
 export default Button;

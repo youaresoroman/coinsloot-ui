@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 
 import ToastProps from "./index.types";
 import Button from "../../Inputs/Button";
+import Container from "../../Layout/Container";
+import { useStore } from "react-context-hook";
 
 const Toast: React.FC<ToastProps> = (
   {
     placeVertical = 'top',
     placeHorizontal = 'right',
-    closeable = false,
-    className = "cl-toast",
+    className = "",
     animate = true,
     actionText = "Action",
     round = true,
@@ -16,26 +17,26 @@ const Toast: React.FC<ToastProps> = (
     show = false,
     zIndex = 1000,
     message,
-    onAction = () => null,
-    onClose = () => null
+    onAction,
+    onClose
   }
 ) => {
+  const toastClassname = "cl-toast"
+  const longread = message.split(" ").length > 10
   const [open, setOpen] = useState<boolean>(show)
-  const position = `${className}-position-${placeVertical}-${placeHorizontal}`
-  const roundToggle = round ? ` ${className}-round` : ''
-  const animateToggle = animate ? ` ${className}-animate` : ''
-  const closeableToggle = closeable ? ` ${className}-closeable` : ''
+  const position = `${toastClassname}-position-${placeVertical}-${placeHorizontal}`
+  const animateToggle = animate ? ` ${toastClassname}-animate` : ''
+  const withActionOrLongread = onAction && longread ? ` ${toastClassname}-withAction-longread` : onAction && !longread ? ` ${toastClassname}-withAction` : !onAction && longread ? ` ${toastClassname}-longread` : ''
   const timeoutSeconds = timeout * 1000;
 
   const closeAction = () => {
-    onClose()
+    onClose ? onClose() : null
     setOpen(false)
   }
 
   const optionalAction = () => {
-    onAction()
+    onAction ? onAction() : null
     setOpen(false)
-    
   }
 
   useEffect(() => {
@@ -49,20 +50,33 @@ const Toast: React.FC<ToastProps> = (
     return
   }, [show])
 
-  const closeButton = (closeable ? <div className={`${className}-close`} onClick={closeAction}>
-    <Button type="ghost">x</Button>
-  </div> : null)
-
-  return open ? (
-    <div
-      style={{ zIndex }}
-      className={`${className} ${position}${closeableToggle}${roundToggle}${animateToggle}`}
-    >
-      <div className={`${className}-message`}>{message}</div>
-      <div className={`${className}-action`} onClick={optionalAction}><Button type="text">{actionText}</Button></div>
-      {closeButton}
+  return open ? <Container
+    style={{ zIndex }}
+    className={`${toastClassname} ${position}${withActionOrLongread}${animateToggle}${className ? " " + className : ""}`}
+    padding="medium"
+    margin="none"
+    animated={false}
+    round={round}
+  >
+    <div className={`${toastClassname}-message`}>{message}</div>
+    {onAction ? <div className={`${toastClassname}-action`} onClick={optionalAction}>
+      <Button type="text">{actionText}</Button>
+    </div> : <></>}
+    <div className={`${toastClassname}-close`} onClick={closeAction}>
+      <Button type="ghost">Close</Button>
     </div>
-  ) : null
+  </Container> : <></>
 };
+
+export const useNotifications = () => {
+  const [, setNotification] = useStore('notifications') as unknown as [typeof Toast, (value: unknown) => void, () => void]
+  
+  const openNotification = (props: ToastProps) => {
+    setNotification(<Toast {...props} />)
+    return
+  }
+
+  return openNotification
+}
 
 export default Toast;

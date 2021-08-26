@@ -18,6 +18,10 @@ export interface ContainerProps {
      */
     round?: boolean
     /**
+     * Custom styles
+     */
+     style?: React.CSSProperties
+    /**
      * On/Off animation
      */
      animated?: boolean
