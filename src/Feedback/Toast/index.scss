@@ -6,177 +6,142 @@
 
 .cl-toast {
   display: grid;
-  background-color: aliceblue;
+  background-color: var(--cl-background-secondary);
   max-width: 20rem;
   width: 85%;
   min-height: 3rem;
   position: fixed;
   z-index: 1000;
   transition: var(--cl-transitions);
-  padding: 0.5rem;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
+  animation: none;
   grid-template-columns: 5fr 1fr;
   grid-column-gap: 5px;
   line-height: initial !important;
-
-  &.cl-toast-closeable {
-    grid-template-columns: 3fr 1fr 2rem;
-  }
-
-  &.cl-toast-animate {
-    animation-duration: var(--cl-animation-duration);
-    animation-timing-function: ease;
-    animation-fill-mode: both;
-
-    &.cl-toast-position-bottom-left,
-    &.cl-toast-position-top-left {
-      animation-name: fadeInLeft;
-    }
-
-    &.cl-toast-position-bottom-right,
-    &.cl-toast-position-top-right {
-      animation-name: fadeInRight;
-    }
-
-    &.cl-toast-position-bottom-center {
-      animation-name: fadeInUp;
-    }
-
-    &.cl-toast-position-top-center {
-      animation-name: fadeInDown;
-    }
-  }
+  grid-template-areas: "message close";
 
   @media (min-width: 451px) {
     width: 100%;
 
-    &.cl-toast-position-top-left,
-    &.cl-toast-position-bottom-left {
+    &-position-top-left,
+    &-position-bottom-left {
       left: var(--cl-toast-horizontal);
     }
 
-    &.cl-toast-position-bottom-right,
-    &.cl-toast-position-top-right {
+    &-position-bottom-right,
+    &-position-top-right {
       right: var(--cl-toast-horizontal);
     }
   }
 
   @media (max-width: 450px) {
 
-    &.cl-toast-position-top-left,
-    &.cl-toast-position-top-right,
-    &.cl-toast-position-bottom-left,
-    &.cl-toast-position-bottom-right {
+    &-position-top-left,
+    &-position-top-right,
+    &-position-bottom-left,
+    &-position-bottom-right {
       @include position-center;
     }
   }
 
-  &.cl-toast-position-top-left,
-  &.cl-toast-position-top-right,
-  &.cl-toast-position-top-center {
+  &-position-top-left,
+  &-position-top-right,
+  &-position-top-center {
     top: var(--cl-toast-vertical);
   }
 
-  &.cl-toast-position-bottom-left,
-  &.cl-toast-position-bottom-right,
-  &.cl-toast-position-bottom-center {
+  &-position-bottom-left,
+  &-position-bottom-right,
+  &-position-bottom-center {
     bottom: calc(var(--cl-toast-vertical) + 3rem);
   }
 
-  &.cl-toast-position-bottom-center,
-  &.cl-toast-position-top-center {
+  &-position-bottom-center,
+  &-position-top-center {
     @include position-center;
   }
 
-  &.cl-toast-round {
+  &-round {
     border-radius: var(--cl-border-round);
   }
 
-  .cl-toast-message {
+  &-withAction {
+    grid-template-areas: "message action close";
+    grid-template-columns: 5fr 1fr 4.5rem;
+  }
+
+  &-longread {
+    grid-template-areas: "message message message"
+      "auto auto close";
+    grid-template-columns: 5fr 1fr 4.5rem;
+
+    .cl-toast-action,
+    .cl-toast-close {
+      align-self: end;
+    }
+  }
+
+  &-withAction-longread {
+    grid-template-areas: "message message message"
+      "auto action close";
+    grid-template-columns: 5fr 1fr 4.5rem;
+
+    .cl-toast-action,
+    .cl-toast-close {
+      align-self: end;
+    }
+  }
+
+  &-animate {
+    animation-duration: var(--cl-animation-duration);
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+  }
+
+  &-position-bottom-left,
+  &-position-top-left {
+    animation-name: fadeInLeft;
+  }
+
+  &-position-bottom-right,
+  &-position-top-right {
+    animation-name: fadeInRight;
+  }
+
+  &-position-bottom-center {
+    animation-name: fadeInUp;
+  }
+
+  &-position-top-center {
+    animation-name: fadeInDown;
+  }
+
+  &-message {
+    grid-area: message;
     display: grid;
     justify-content: left;
     align-content: center;
     text-align: left;
-    padding: 5px;
+    //padding: 5px;
     line-break: anywhere;
     word-break: break-word;
     font-size: 15px;
     color: var(--cl-text-color);
   }
 
-  .cl-toast-action {
+  &-action {
+    grid-area: action;
     padding: 5px;
     display: grid;
     justify-content: center;
     align-content: center;
-    align-self: end;
   }
 
-  .cl-toast-close {
+  &-close {
+    grid-area: close;
     padding: 5px;
     display: grid;
     justify-content: center;
     align-content: center;
-    align-self: end;
   }
 
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translate3d(-100%, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: none;
-  }
 }

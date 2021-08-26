@@ -9,25 +9,26 @@ const Button: React.FC<ButtonProps> = ({
   url,
   disabled = false,
   round = true,
-  width = "",
+  style,
   onClick = () => null,
-  className = 'cl-button'
+  className = ''
 }) => {
-  const buttonType = `${className}-${type}${disabled ? "-disabled" : ""}`
-  const buttonSize = `${className}-${size}`
-  const buttonShape = round ? `${className}-round` : ''
+  const buttonClassname = 'cl-button'
+  const buttonType = `${buttonClassname}-${type}${disabled ? "-disabled" : ""}`
+  const buttonSize = `${buttonClassname}-${size}`
+  const buttonShape = round ? `${buttonClassname}-round` : ''
+  const classes = `${buttonClassname} ${className? className + " " : ""}${[buttonSize, buttonType, buttonShape].join(' ')}`
 
-  const classes = `${className} ${[buttonSize, buttonType, buttonShape].join(' ')}`
   return type !== "link" ? <button
     type='button'
     className={classes}
-    style={ width ? { width } : {}}
+    style={style}
     onClick={() => {
       !disabled ? onClick() : null
     }}
   >
     {children}
-  </button> : <a href={url} className={classes}>{children}</a>
+  </button> : <a href={url} className={classes} style={style}>{children}</a>
 }
 
 export default Button;

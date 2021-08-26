@@ -4,7 +4,7 @@ export interface ContainerProps {
     /**
      * Override component classname
      */
-    classNameOverride?: string
+    className?: string
     /**
      * Container paddings
      */
@@ -17,6 +17,10 @@ export interface ContainerProps {
      * Container round corners
      */
     round?: boolean
+    /**
+     * Custom styles
+     */
+     style?: React.CSSProperties
     /**
      * On/Off animation
      */

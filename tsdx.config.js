@@ -7,7 +7,7 @@ module.exports = {
             sass({
                 output: true,
                 output: 'dist/bundle.css',
-                prefix: `@import "./variables.scss";`,
+                //prefix: `@import "./variables.scss";`,
                 //outputStyle: 'compressed'
             }),
             postcss({
