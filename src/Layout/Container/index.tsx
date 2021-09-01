@@ -10,6 +10,7 @@ const Container: React.FC<ContainerProps> = ({
     animated = false,
     className = "",
     style = {},
+    onClick,
     children }) => {
     const elevationClassName = "cl-elevation"
     const containerClassName = "cl-container"
@@ -20,7 +21,11 @@ const Container: React.FC<ContainerProps> = ({
     const elevationClasses = elevation != 0 ? ` ${elevationClassName} ${elevationClassName}-elevate-${elevation}${roundToggle}${animatedToggle}` : ""
     const classes = `${containerClassName} ${[paddingToggle, margingToggle].join(' ')}${roundToggle}${elevationClasses}${className ? " " + className : ""}`
 
-    return <div className={classes} style={style}>
+    return <div
+        className={classes}
+        style={style}
+        onClick={onClick ? onClick : () => { null }}
+    >
         {children}
     </div>
 };

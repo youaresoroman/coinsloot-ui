@@ -44,9 +44,6 @@ Link.args = {
   children: 'Link button',
 };
 
-
-
-
 export const Text = Template.bind({});
 Text.args = {
   type: "text",

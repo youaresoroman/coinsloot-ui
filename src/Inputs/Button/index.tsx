@@ -6,7 +6,6 @@ const Button: React.FC<ButtonProps> = ({
   type = 'primary',
   size = 'medium',
   children,
-  url,
   disabled = false,
   round = true,
   style,
@@ -17,9 +16,9 @@ const Button: React.FC<ButtonProps> = ({
   const buttonType = `${buttonClassname}-${type}${disabled ? "-disabled" : ""}`
   const buttonSize = `${buttonClassname}-${size}`
   const buttonShape = round ? `${buttonClassname}-round` : ''
-  const classes = `${buttonClassname} ${className? className + " " : ""}${[buttonSize, buttonType, buttonShape].join(' ')}`
+  const classes = `${buttonClassname} ${className ? className + " " : ""}${[buttonSize, buttonType, buttonShape].join(' ')}`
 
-  return type !== "link" ? <button
+  return <button
     type='button'
     className={classes}
     style={style}
@@ -28,7 +27,7 @@ const Button: React.FC<ButtonProps> = ({
     }}
   >
     {children}
-  </button> : <a href={url} className={classes} style={style}>{children}</a>
+  </button>
 }
 
 export default Button;

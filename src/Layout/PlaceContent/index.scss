@@ -1,0 +1,42 @@
+.cl-place-content {
+    display: grid;
+
+    &-vertical {
+        &-top {
+            align-content: start;
+            align-items:start;
+        }
+
+        &-center {
+            align-content: center;
+            align-items: center;
+        }
+
+        &-bottom {
+            align-content: end;
+            align-items: end;
+        }
+    }
+
+    &-horizontal {
+        &-left {
+            justify-items: left;
+            justify-content: left;
+            text-align: left;
+        }
+
+        &-center {
+            justify-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        &-right {
+            justify-items: right;
+            justify-content: right;
+            text-align: right;
+        }
+    }
+
+
+}
