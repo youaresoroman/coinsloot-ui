@@ -1,20 +1,20 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Link from "./";
+import LinkComponent from "./";
 
 export default {
   title: 'Navigation/Link',
-  component: Link
-} as ComponentMeta<typeof Link>;
+  component: LinkComponent
+} as ComponentMeta<typeof LinkComponent>;
 
 const children = "Link"
 
-const Template: ComponentStory<typeof Link> = (args) => { 
-  return <>Some text <Link {...args} /> around</>
+const Template: ComponentStory<typeof LinkComponent> = (args) => { 
+  return <>Some text <LinkComponent {...args} /> around</>
 };
 
-export const Template_Example = Template.bind({});
-Template_Example.args = {
+export const Link = Template.bind({});
+Link.args = {
   children
 }
 
