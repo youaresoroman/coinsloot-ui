@@ -5,6 +5,14 @@ module.exports = (componentName, groupName) => ({
      */
     className?: string
     /**
+     * Custom styles
+     */
+    style?: React.CSSProperties
+    /**
+    * Optional click handler
+    */
+    onClick?: () => void
+    /**
      * Foo param
      */
     foo: string;

@@ -86,7 +86,6 @@
 
   &.cl-button-link {
     background: transparent;
-    position: relative;
     font-weight: initial;
     border: initial;
     padding: 0;
@@ -97,11 +96,11 @@
 
     &:hover {
       box-shadow: initial;
-      //color: var(--cl-text-color-contrast);
+      text-decoration: underline;
+    }
 
-      &::after {
-        top: 0%;
-      }
+    @media (hover: none) {
+      text-decoration: underline;
     }
 
     &-disabled {
@@ -114,18 +113,6 @@
       padding-bottom: 8px;
       border-radius: initial;
       color: var(--cl-text-color);
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      top: 80%;
-      left: -0.1em;
-      right: -0.1em;
-      bottom: 0;
-      transition: top var(--cl-animation-duration) cubic-bezier(0, 0.8, 0.13, 1);
-      background-color: rgb(var(--cl-color-theme-rgba), 0.5);
     }
   }
 

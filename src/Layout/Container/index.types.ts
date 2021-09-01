@@ -20,11 +20,15 @@ export interface ContainerProps {
     /**
      * Custom styles
      */
-     style?: React.CSSProperties
+    style?: React.CSSProperties
     /**
      * On/Off animation
      */
-     animated?: boolean
+    animated?: boolean
+    /**
+    * Optional click handler
+    */
+    onClick?: () => void
     /**
    * Elevation
    */

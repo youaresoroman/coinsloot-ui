@@ -11,10 +11,6 @@ interface ButtonProps {
    */
   type?: 'primary' | 'white' | 'ghost' | 'link' | 'text'
   /**
-   * Link url
-   */
-  url?: string
-  /**
      * Custom styles
      */
   style?: React.CSSProperties
