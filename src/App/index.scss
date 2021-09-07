@@ -94,3 +94,26 @@ body {
     transform: none;
   }
 }
+
+.cl-elevation {
+
+  &.cl-elevation-elevate-1 {
+    box-shadow: var(--cl-shadow-1);
+  }
+
+  &.cl-elevation-elevate-2 {
+    box-shadow: var(--cl-shadow-2);
+  }
+
+  &.cl-elevation-elevate-3 {
+    box-shadow: var(--cl-shadow-3);
+  }
+
+  &.cl-elevation-elevate-4 {
+    box-shadow: var(--cl-shadow-4);
+  }
+
+  &.cl-elevation-elevate-5 {
+    box-shadow: var(--cl-shadow-5);
+  }
+}

@@ -11,7 +11,7 @@ export default {
 const children = <div>Text</div>
 
 const Template: ComponentStory<typeof PlaceContent> = (args) => {
-  return <Container padding="large" style={{minHeight: 300}}><PlaceContent {...args} style={{ minHeight: "inherit"}}/></Container>
+  return <Container padding="large" style={{minHeight: 300}} elevation={3}><PlaceContent {...args} style={{ minHeight: "inherit"}}/></Container>
 }
 
 export const TopLeft = Template.bind({});
