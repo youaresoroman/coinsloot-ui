@@ -21,10 +21,24 @@ TopLeft.args = {
   horizontalDirection: "left"
 };
 
+export const BottonLeft = Template.bind({});
+BottonLeft.args = {
+  children,
+  verticalDirection: "bottom",
+  horizontalDirection: "left"
+};
+
 export const TopRight = Template.bind({});
 TopRight.args = {
   children,
   verticalDirection: "top",
+  horizontalDirection: "right"
+};
+
+export const BottonRight = Template.bind({});
+BottonRight.args = {
+  children,
+  verticalDirection: "bottom",
   horizontalDirection: "right"
 };
 
@@ -40,20 +54,6 @@ CenterCenter.args = {
   children,
   verticalDirection: "center",
   horizontalDirection: "center"
-};
-
-export const BottonLeft = Template.bind({});
-BottonLeft.args = {
-  children,
-  verticalDirection: "bottom",
-  horizontalDirection: "left"
-};
-
-export const BottonRight = Template.bind({});
-BottonRight.args = {
-  children,
-  verticalDirection: "bottom",
-  horizontalDirection: "right"
 };
 
 export const BottonCenter = Template.bind({});
