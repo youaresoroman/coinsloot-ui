@@ -361,6 +361,10 @@ body.lightTheme {
   border-radius: var(--cl-border-round);
 }
 
+.cl-grid {
+  color: black;
+}
+
 .cl-link {
   font-size: 16px;
   background: transparent;
