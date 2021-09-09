@@ -16,7 +16,7 @@ const Picture: React.FC<PictureProps> = ({ style, source, src, alt, className, o
     if (isIpfsReady && ipfs) {
       Promise.all(source?.map(async (data) => {
         const { srcset, media, type } = data
-        let newSrcSet = srcset
+        let newSrcSet = srcset || ""
 
         if (newSrcSet.includes("ipfs://")) {
           await ipfs.read(newSrcSet.slice(7)).then(([file]) => {
