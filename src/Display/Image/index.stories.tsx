@@ -7,10 +7,9 @@ export default {
   component: Image
 } as ComponentMeta<typeof Image>;
 
-const Template: ComponentStory<typeof Image> = (args) => <Image {...args} />;
+const Template: ComponentStory<typeof Image> = (args) => <Image {...args} /> ;
 
-export const Template_Example = Template.bind({});
-Template_Example.args = {
+export const Default = Template.bind({});
+Default.args = {
   src: "ipfs://Qmb6NcrQ5baEjRF26fc1emavobRM8W2UZPYGtJyxbWs7w2/giga_images/3.png"
 };
-

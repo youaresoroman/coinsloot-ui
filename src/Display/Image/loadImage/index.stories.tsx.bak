@@ -1,0 +1,17 @@
+import React, { useEffect } from "react";
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import Image, { loadImage } from "..";
+
+export default {
+  title: 'Display/LoadImage',
+  component: Image
+} as ComponentMeta<typeof Image>;
+
+const Template: ComponentStory<typeof Image> = (args) => {
+  return <Image src={loadImage(args.src)} alt="Test" />
+};
+
+export const Default = Template.bind({});
+Default.args = {
+  src: "ipfs://QmXkFTM2DbCr1YorSUmJ455sx3TZ2nJ73YEcRZ8QwnG1qH/background/default.svg"
+};
