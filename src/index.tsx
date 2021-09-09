@@ -9,6 +9,9 @@ import useDeviceDisplayType from "./Hooks/useDeviceDisplayType"
 import PlaceContent from "./Layout/PlaceContent"
 import Grid from "./Layout/Grid"
 import * as utils from "./utils"
+import Image, {loadImage} from "./Display/Image"
+import Picture from "./Display/Picture";
+import Badge from "./DataDisplay/Badge";
 
 export {
     App,
@@ -17,6 +20,10 @@ export {
     Toast,
     PlaceContent,
     Grid,
+    Picture,
+    Image,
+    Badge,
+    loadImage,
     useNotifications,
     withNotifications,
     useTheme,
