@@ -1,4 +1,4 @@
-import "./scss/styles.scss";
+import "./css/styles.css";
 import App from "./App"
 import Button from "./Inputs/Button"
 import Container from "./Layout/Container"
@@ -12,6 +12,7 @@ import * as utils from "./utils"
 import Image, {loadImage} from "./Display/Image"
 import Picture from "./Display/Picture";
 import Badge from "./DataDisplay/Badge";
+import useDeviceTypeDetect from "./Hooks/useDeviceTypeDetect";
 
 export {
     App,
@@ -27,6 +28,7 @@ export {
     useNotifications,
     withNotifications,
     useTheme,
+    useDeviceTypeDetect,
     useDeviceDisplayType,
     utils
 }

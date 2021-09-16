@@ -7,20 +7,21 @@ export const loadImage = (src: string) => {
   const [imgSrc, setImgSrc] = useState<string>("")
 
   useEffect(() => {
-    if (isIpfsReady && ipfs) {
-      if (src && src.includes("ipfs://")) {
+    if (src && src.includes("ipfs://")) {
+      if (isIpfsReady && ipfs) {
         ipfs.read(src.slice(7)).then(([file]) => {
           if (file) {
             const fileData = file.toFile()
             setImgSrc(URL.createObjectURL(fileData));
           }
         })
+      } else {
+        setImgSrc(`https://cloudflare-ipfs.com/ipfs/${src.slice(7)}`)
       }
     } else {
-      if (src && !src.includes("ipfs://")) {
-        setImgSrc(src)
-      }
+      setImgSrc(src)
     }
+
   }, [ipfs, isIpfsReady, src])
 
   return imgSrc

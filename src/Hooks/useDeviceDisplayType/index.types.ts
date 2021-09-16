@@ -6,4 +6,3 @@ export interface useDeviceDisplayTypeProps {
 }
 
 export type useDeviceDisplayTypeReturnType = ["extrasmall" | "small" | "medium" | "large" | "extralarge", (value: string) => void, () => void]
-

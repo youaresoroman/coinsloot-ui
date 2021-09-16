@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import AppProps from "../index.types";
 import { startIPFSInstance } from "react-ipfs";
-import useTheme from "../../Hooks/useTheme";
-import withNotifications from "../../Hooks/withNotifications";
+import { useTheme } from "../..";
+import { withNotifications } from "../..";
+import { useDeviceTypeDetect } from "../..";
 
 const App: React.FC<AppProps> = ({ children }) => {
-  useTheme()
-  startIPFSInstance()
   const notification = withNotifications()
-  
+  useTheme()
+  startIPFSInstance("full")
+  useDeviceTypeDetect()
+
   return <>
     {notification}
     {children}
