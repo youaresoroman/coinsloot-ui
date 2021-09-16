@@ -1,51 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useIPFS } from "react-ipfs";
+import React from "react";
 import PictureProps from "./index.types";
 import Image from "../Image"
+import Source from "../Source";
 
 const Picture: React.FC<PictureProps> = ({ style, source, src, alt, className, onClick }) => {
-  const { ipfs, isIpfsReady } = useIPFS()
   const classes = `${className ? className : ""}`
-  const [sources, setSources] = useState<{
-    media: string,
-    srcset: string,
-    type?: string
-  }[]>([])
 
-  useEffect(() => {
-    if (isIpfsReady && ipfs) {
-      Promise.all(source?.map(async (data) => {
-        const { srcset, media, type } = data
-        let newSrcSet = srcset || ""
-
-        if (newSrcSet.includes("ipfs://")) {
-          await ipfs.read(newSrcSet.slice(7)).then(([file]) => {
-            newSrcSet = file?.toObjectURL() || ""
-          })
-        }
-
-        return {
-          media,
-          type,
-          srcset: newSrcSet
-        }
-      }) || []).then((list: {
-        media: string,
-        srcset: string,
-        type?: string
-      }[]) => {
-        setSources(list)
-      }).catch(() => {
-        setSources([])
-      })
-    }
-  }, [ipfs, isIpfsReady, src, source])
-
-  return <picture className={classes} onClick={onClick}>
-    {sources?.map(({ media, srcset, type }, index) => {
-      return <source key={index} media={media} srcSet={srcset} type={type} />
+  return <picture  onClick={onClick} style={style}>
+    {source.map(({ media, srcset, type }, index) => {
+      return <Source key={index} media={media} srcset={srcset} type={type} style={style} />
     })}
-    <Image src={src} alt={alt} style={style} />
+    <Image src={src} className={classes} alt={alt} style={style} />
   </picture>
 };
 
