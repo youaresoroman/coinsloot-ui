@@ -12,7 +12,7 @@ export const parameters = {
   },
 }
 
-export const decorators = [
+export const decorators = [   
   (Story) => (
     <App style={styles}>
       <Story />
